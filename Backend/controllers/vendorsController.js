@@ -6,7 +6,7 @@ const vendorRegister = async(req,res)=>{
     const {username,email,password}=req.body;
 
     try{
-        const vendorEmail = new Vendor.findOne({email});
+        const vendorEmail = await Vendor.findOne({email});
         if(vendorEmail){
             return res.status(400).json("Email already exists")
         }
